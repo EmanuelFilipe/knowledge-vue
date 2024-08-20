@@ -14,3 +14,9 @@ execute: mongod
 dentro de backend:
 
 npx knex migrate:make create_table_users
+npx knex migrate:latest
+npx knex migrate:rollback
+
+## caso aconteça erro de:
+### TimeoutError: Knex: Timeout acquiring a connection. The pool is probably full. Are you missing a .transacting(trx)
+npm install pg@latest --save
