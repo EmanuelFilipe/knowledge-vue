@@ -7,6 +7,7 @@ app.db = db
 
 // configurando o consign para ler todos esses arquivos
 consign().then('./config/middlewares.js')
+         .then('./api/validation.js')   
          .then('./api')   
          .then('./config/routes.js')
          .into(app)
