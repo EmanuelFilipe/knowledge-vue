@@ -18,8 +18,6 @@ export default new Vuex.Store({
         state.isMenuVisible = !state.isMenuVisible
       else
         state.isMenuVisible = isVisible
-      
-      console.log('toggleMenu=', state.isMenuVisible)
     }
   },
   actions: {},

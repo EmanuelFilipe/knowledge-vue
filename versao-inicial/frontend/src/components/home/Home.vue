@@ -1,24 +1,28 @@
 <template>
-    <div>
-        <PageTitle icon="fa fa-home" :mainTitle="'Dashboard'" 
-            :sub-title="'Knowledge'"/>
-        <hr>
+    <div class="home">
+        <PageTitle icon="fa fa-home" main="Dashboard"
+            sub="Base de Conhecimento" />
         <div class="stats">
-            <div v-for="stat in statistic" :key="stat.id">
-                <Stat :title="stat.title" :value="stat.value" 
-                    :icon="stat.icon" :color="stat.color" />
-            </div>
+            <template>
+                <Stat :title="statistic[0].title" :value="statistic[0].value"
+                icon="fa fa-folder" :color="statistic[0].color" />
+                <Stat :title="statistic[1].title" :value="statistic[1].value"
+                icon="fa fa-file" :color="statistic[1].color" />
+                <Stat :title="statistic[2].title" :value="statistic[2].value"
+                icon="fa fa-user" :color="statistic[2].color" />
+            </template>          
         </div>
     </div>
 </template>
 
 <script>
-import PageTitle from '../template/PageTitle.vue';
-import Stat from '../home/Stat.vue';
-    export default {
-        name: 'Home',
-        components: { PageTitle, Stat},
-        data() {
+import PageTitle from '../template/PageTitle'
+import Stat from './Stat'
+
+export default {
+    name: 'Home',
+    components: { PageTitle, Stat },
+    data() {
             return {
                 statistic: [
                     {
@@ -45,14 +49,13 @@ import Stat from '../home/Stat.vue';
                 ]
             }
         },
-    }
+}
 </script>
 
-<style scoped>
-.stats {
-    /* divide 3 elementos em uma linha */
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
+<style>
+    .stats {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
 </style>
