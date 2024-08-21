@@ -1,32 +1,55 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view />
+  <div id="app" :class="{'hide-menu': !isMenuVisible}">
+    <Header :title="'Knowledge'" :hideToggle="false" :hideUserDropdown="false" />
+    <Menu />
+    <Content />
+    <Footer />
   </div>
 </template>
 
+<script>
+import Header from './components/template/Header.vue';
+import Menu from './components/template/Menu.vue';
+import Content from './components/template/Content.vue';
+import Footer from './components/template/Footer.vue';
+import { mapState } from 'vuex'
+
+export default {
+  name: 'App',
+  components: { Header, Menu, Content, Footer },
+  computed: mapState(['isMenuVisible'])
+
+}
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+	* {
+		font-family: "Lato", sans-serif;
+	}
 
-nav {
-  padding: 30px;
-}
+	body {
+		margin: 0;
+	}
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+	#app {
+    /* suaviza a renderização das fontes */
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 
-nav a.router-link-exact-active {
-  color: #42b983;
-}
+		height: 100vh;
+		display: grid;
+		grid-template-rows: 60px 1fr 40px;
+		grid-template-columns: 300px 1fr;
+		grid-template-areas:
+			"header header"
+			"menu content"
+			"menu footer";
+	}
+
+	#app.hide-menu {
+		grid-template-areas:
+			"header header"
+			"content content"
+			"footer footer";
+	}
 </style>
