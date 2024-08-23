@@ -3,6 +3,9 @@
 ##  backend
 npm start
 
+## frontend
+npm run serve
+
 ## knex
 usado para acessar o banco de dados postgres
 
