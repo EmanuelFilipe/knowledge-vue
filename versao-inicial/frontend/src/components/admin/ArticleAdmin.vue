@@ -30,8 +30,7 @@
         <b-form-input
           id="article-imageUrl"
           type="text"
-          v-model="article.imageUrl"
-          required
+          v-model="article.imageUrl"        
           :readonly="mode === 'remove'"
           placeholder="Informe a URL da Imagem..."
         />

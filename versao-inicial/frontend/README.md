@@ -1,24 +1,13 @@
 # frontend
 
-## Project setup
-```
-npm install
-```
+## concatena o resultado anterior com o novo resultado
+this.articles = this.articles.concat(res.data)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## possui tela de login / validação de token
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## exibe popup de espera
 
-### Lints and fixes files
-```
-npm run lint
-```
+## inclusão de uma nova regra de acesso em router
+meta: { requiresAdmin: true }
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## validação de acesso a pagina se user é admin
